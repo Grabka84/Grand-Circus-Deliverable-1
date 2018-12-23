@@ -56,13 +56,13 @@ public class whatToEat {
 			prepSugg = "in the microwave.";
 		}
 		
-		// if partySize is 1, use the single non plural, if more than 1 then use plural, initiate variable partPlural on the same line
-		String partPlural = (partySize == 1) ? "single participant" : "participants"; 
+		// if partySize is 1, use the singular, if more than 1 then use plural, declare and initiate variable partPlural on the same line
+		String partPlural = (partySize == 1) ? "participant" : "participants"; 
 		
 		System.out.println(); // empty line to avoid crowding  
 		
 		// printing the result 
-		result = "Since you're hosting a " + eventType + " event for " + partySize + " " + partPlural+ ", you should serve " + mealType + " prepared " + prepSugg ;
+		result = ("Since you're hosting a " + eventType + " event for " + partySize + " " + partPlural + ", you should serve " + mealType + " prepared " + prepSugg);
 		System.out.println(result);
 		userInput.close();
 	}
