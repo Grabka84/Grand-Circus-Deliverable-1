@@ -23,19 +23,30 @@ public class whatToEat {
 		int eventChar; // integer variable to store the user input for event type  
 		eventChar = userInput.nextInt();
 		
+		Boolean validResponse = false; 
+		// to test that user input 1, 2, or 3, check if the input matches any options, then make true and end the loop
+		while(validResponse == false) {
+			if(eventChar == 1) {
+				validResponse = true;
+			} else if (eventChar == 2) {
+				validResponse = true;
+			} else if (eventChar == 3) {
+				validResponse = true;
+			} else {
+				System.out.println("You have input an invalid option, please select from the list: ");
+				eventChar = userInput.nextInt();
+			}
+		}
+		
 		if(eventChar == 1) { // if casual then sandwiches
 			eventType = "casual";
 			mealType = "sandwiches";
 		} else if (eventChar == 2){ // if semi formal then fried chicken
 			eventType = "semi-formal";
 			mealType = "fried chicken";
-		} else if (eventChar == 3) { // if formal then chicken parmesan
+		} else { // if formal then chicken parmesan, only remaining option
 			eventType = "formal";
 			mealType = "chicken parmesan";
-		} else {
-			eventType = "formal"; // placeholder until i figure out how to go back to asking for input if it's outside of the requested range  
-			mealType = "chicken parmesan"; 
-			System.out.println("You have input an invalid character, system has selected formal as the default option.");
 		}
 		System.out.println(); // empty line to avoid crowding
 		
@@ -43,9 +54,9 @@ public class whatToEat {
 		System.out.print("How many people will be in the party?: "); // requests user input 
 		partySize = userInput.nextInt(); // places user input into an integer variable (number of people)
 		
-		if(partySize <= 0) { // if user input is 0 or negative, application attempts to get a valid response
+		while(partySize <= 0) { // while user input is 0 or negative, application attempts to get a valid response
 			System.out.print("Please enter a positive value greater than 0: ");
-			partySize = userInput.nextInt(); // tries again if given a negative number or 0 but then does nothing to validate
+			partySize = userInput.nextInt(); // tries again if given a negative number or 0
 		}
 		
 		if(partySize >= 13) {
